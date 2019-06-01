@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>易烊千玺</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="易烊千玺">
+<meta property="og:url" content="http://stonelee.online/index.html">
+<meta property="og:site_name" content="易烊千玺">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="易烊千玺">
+  
+    <link rel="alternate" href="/atom.xml" title="易烊千玺" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">易烊千玺</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://stonelee.online"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-软件安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/01/软件安装/" class="article-date">
+  <time datetime="2019-06-01T02:56:46.984Z" itemprop="datePublished">2019-06-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/01/软件安装/">包管理工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="包管理工具"><a href="#包管理工具" class="headerlink" title="包管理工具"></a>包管理工具</h1><p>包管理工具  –  需要连接到仓库，安装仓库中的版本，无法获取最新；阿里云服务器的仓库是阿里云内部的创建的yum仓库<br>    yum search <name> - 搜索仓库中的软件包<br>    yum -y install <name1> <name2> - 安装软件包<br>    yum remove <name> - 删除软件包<br>    yum upgrade <name> -更新软件包<br>    yum update - 更新所有的包<br>    yum list installed - 列出已经安装过的包<br>    yum info <name> - 查看包的信息</name></name></name></name2></name1></name></p>
+<p>例如：yum install nginx</p>
+<p>#源代码构建安装<br>    1.wget 下载源代码<br>    2.解压缩和解归档<br>        gunzip / xz -d<br>        tar -xvf / tar -cvf<br>    3.添加必要的依赖项 - yum<br>    4.构建前的配置 - configure –&gt; Makefile<br>    5.构建和安装 – make &amp;&amp; make install<br>        make clean(如果第一次make失败了)<br>        make<br>        make install<br>    6.配置必须要的环境变量 - export / 修改配置<br>    7.注册快捷方式</p>
+<p>注意：步骤3 步骤6和步骤7可以依据具体软件删减</p>
+<p>#装版本控制软件 – git</p>
+<ol>
+<li>wget <a href="https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.21.0.tar.xz" target="_blank" rel="noopener">https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.21.0.tar.xz</a></li>
+<li>xz -d git-2.21.0.tar.xz – &gt;解压</li>
+<li>tar -xvf git-2.21.0.tar</li>
+<li>cd git-2.21.0</li>
+<li>yum -y install libcurl-devel</li>
+<li>./configure –prefix=/usr/local</li>
+<li>make &amp;&amp; make install</li>
+<li>git –version</li>
+</ol>
+<p>#装数据库</p>
+<ol>
+<li>wget <a href="http://download.redis.io/releases/redis-5.0.5.tar.gz" target="_blank" rel="noopener">http://download.redis.io/releases/redis-5.0.5.tar.gz</a></li>
+<li>gunzip -d  redis-5.0.5.tar.gz</li>
+<li>tar -xvf  redis-5.0.5.tar</li>
+<li>cd redis-5.0.5</li>
+<li>make &amp;&amp; make install</li>
+<li>redis-server –version</li>
+<li>redis-cli –version</li>
+</ol>
+<p>#安装python</p>
+<ol>
+<li>wget   <a href="https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz" target="_blank" rel="noopener">https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz</a></li>
+<li>gunzip -d python-3.7.3.tgz</li>
+<li>tar -xvf python-3.7.3.tar</li>
+<li>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libdb4-devel libpcap-devel xz-devel libffi-devel</li>
+<li>./configure –prefix=/usr/local/python37 –enable-optimizations</li>
+<li>make &amp;&amp; make install</li>
+<li>echo $PATH</li>
+<li>export PATH=$PATH:/usr/local/python37/bin</li>
+<li>ln -s /usr/local/python37/bin/python3  /usr/bin/python3</li>
+</ol>
+<p>##操作解释</p>
+<ol>
+<li><p>安装依赖项<br>yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libdb4-devel libpcap-devel xz-devel libffi-devel<br>-y 所有询问都回答yes</p>
+</li>
+<li><p>安装前的配置 –&gt; 就是设置安装路径<br>./configure –prefix=/usr/local/python37 –enable-optimizations<br>–prefix  –&gt;指定安装路径</p>
+</li>
+<li><p>注册环境变量 （临时）–<br>echo $PATH  – &gt; 查看当前的环境变量<br>export PATH=$PATH:/usr/local/python37/bin<br>–&gt; 导出安装路径的原来的值并把路径赋给PATH<br>export –&gt;导出</p>
+</li>
+<li><p>注册快捷方式：ln  – link的简写<br>给python3做一个快捷方式（符号链接/软链接）</p>
+</li>
+</ol>
+<p>ln -s /usr/local/python37/bin/python3  /usr/bin/python3<br>    -s(symbolic)<br>    快捷方式放在/usr/bin/python3</p>
+<p>ln sohu.html  /sohu3.html<br>    创建硬链接 – 备份<br>删除所有引用 – 就是删除所有数据</p>
+<ol start="5">
+<li>gnu zip  –&gt; gzip –&gt;压缩文件后缀gz<br>gcc  – &gt;g协议下的c compiler<br> gzip压缩 – gunzip解压<br> tar -xvf 文件名字 –&gt;<br> -xvf –抽取文件归档 （x –&gt; extract）<br> -cvf – 创建文件归档</li>
+</ol>
+<p>6.超链接<br><a href="./images/yyqx.jpg">易烊千玺</a></p>
+<p>7.图片<br><img src="./images/yyqx.jpg" alt="易烊千玺"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://stonelee.online/2019/06/01/软件安装/" data-id="cjwczw8a70001xku1lf8nrj6u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/01/hello-world/" class="article-date">
+  <time datetime="2019-06-01T02:50:20.898Z" itemprop="datePublished">2019-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/01/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://stonelee.online/2019/06/01/hello-world/" data-id="cjwczw8a10000xku1ur76out5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/06/01/软件安装/">包管理工具</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/01/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Stone Lee<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
